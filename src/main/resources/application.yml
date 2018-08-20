@@ -1,0 +1,21 @@
+server:
+  port: 5555
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/zipkin?characterEncoding=utf-8&useSSL=false
+    schema: classpath:/zipkin.sql #数据库创建脚本，可以到官网下载
+    initialize: true   #可以决定是不是要初始化这些数据库文件
+    continue-on-error: true #在初始化数据库时，遇到错误是否继续，默认false
+  sleuth: 
+    enabled: false #表示当前程序不使用sleuth
+  rabbitmq:
+   password: guest
+   port: 5672
+   host: 127.0.0.1
+   username: guest
+zipkin: 
+  storage: 
+    type: mysql #mysql存储zipkin追踪信息
